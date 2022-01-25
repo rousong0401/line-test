@@ -85,7 +85,54 @@
             <img src="./img/awards-2x.png" alt="獎品及人物圖片" class="mx-auto">
           </div>
           <div v-show="nowLoginWay === 'modernManual'">
-            <p class="text-white">手動輸入</p>
+            <div class="mb-2">
+              <div class="flex items-center mb-1">
+                <span class="text-secondary">*</span>
+                <h3 class="text-white">發票日期</h3>
+              </div>
+              <input type="date"
+                class="duration-300 block bg-white border w-full rounded-5 h-10 p-1.5 focus:border focus:border-gray-500">
+            </div>
+            <div class="mb-2">
+              <div class="flex items-center mb-1">
+                <span class="text-secondary">*</span>
+                <h3 class="text-white">發票號碼</h3>
+              </div>
+              <input type="text" placeholder="請輸入發票號碼(ex:AB12345678)"
+                class="uppercase duration-300 block bg-white border w-full rounded-5 h-9 px-1.5 focus:border focus:border-gray-500">
+            </div>
+            <div class="mb-2">
+              <div class="flex items-center mb-1">
+                <span class="text-secondary">*</span>
+                <h3 class="text-white">上傳購買證明或發票照片</h3>
+              </div>
+              <input type="file"
+                class="duration-300 block text-gray-300 bg-white border w-full rounded-5 p-1.5 mb-2 focus:border focus:border-gray-500"
+                @change="uploadFile">
+              <div v-if="preview">
+                <div class="relative pt-50%">
+                  <img :src="preview" :alt="previewName" class="absolute top-0 left-0 w-full h-full object-cover">
+                </div>
+                <p class="text-white mt-2">
+                  請確認上傳照片清晰可辨識，且購買品項須完整露出，若有疑慮請重新上傳，避免影響中獎權益。
+                </p>
+              </div>
+            </div>
+            <div class="mb-4">
+              <div class="flex items-center mb-1">
+                <span class="text-secondary">*</span>
+                <h3 class="text-white">發票隨機碼</h3>
+              </div>
+              <div class="flex">
+                <input type="number" placeholder="請輸入發票隨機碼(EX:1234)"
+                  class="form-control duration-300 block bg-white border w-full rounded-5 h-9 px-2.5 focus:border focus:border-gray-500">
+              </div>
+            </div>
+            <div class="w-full pb-2">
+              <button type="button" class="block w-full text-20px bg-primary rounded-9 p-2.5">
+                送 出
+              </button>
+            </div>
           </div>
           <div v-show="nowLoginWay === 'tradition'">
             <div class="mb-2">
