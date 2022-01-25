@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/tailwind.css">
+  <link rel="stylesheet" href="./css/all.css">
+  <title>多喝水竹炭水鬼滅之刃</title>
+</head>
+
+<body>
+
+  <div id="app">
+    <div class="relative h-screen" v-if="message">
+      <div class="flex justify-between items-center bg-white pt-2 pr-5 pb-5 pl-3">
+        <img src="./img/precautions-logo.png" alt="precautions-logo">
+        <h2 class="text-14px text-gray-500">活動注意事項</h2>
+        <div class="relative w-3 h-3" @click="closeMessage">
+          <span
+            class="block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gray-400 w-full h-px rotate-45">
+          </span>
+          <span
+            class="block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gray-400 w-full h-px -rotate-45">
+          </span>
+        </div>
+      </div>
+      <div style="background-image: url(./img/bg-banner.png);"
+        class="activity bg-center bg-cover bg-no-repeat h-[calc(100%-129px)] overflow-x-hidden overflow-y-auto px-4">
+        <ul>
+          <li class="mb-4">
+            <h3 class="font-bold text-18px text-primary mb-3.5">活動辦法</h3>
+            <ul>
+              <li class="flex mb-1">
+                <spam class="text-15px text-gray-200">1.</spam>
+                <p class="text-15px text-gray-200">
+                  活動時間:2022/2/8~2022/4/30 23:59止<br>(以主辦單位電腦系統時間為主)
+                </p>
+              </li>
+              <li class="flex mb-1">
+                <span class="text-15px text-gray-200">2.</span>
+                <p class="text-15px text-gray-200">
+                  活動辦法:活動期間內，凡購買「多喝水鹼性竹炭水」全系列商品任2件 (600ml/700ml/1500ml/2000ml/2500ml/6200ml)，至多喝水LINE官方帳號登錄發票即可參加抽獎。
+                </p>
+              </li>
+              <li class="flex mb-1">
+                <span class="text-15px text-gray-200">3.</span>
+                <p class="text-15px text-gray-200">
+                  活動獎項:<br>
+                  • 鬼滅之刃限量聯名Q版行李箱<br>(價值18,000元，共1名)<br>
+                  • 炭治郎限量聯名運動毛巾<br>(價值250元，共50名)<br>
+                  • 通路特別獎:<br>
+                  【7-11發票限定】鬼滅之刃限量聯名炭治郎款行李箱<br>(價值18,000元，共1名)<br>
+                  【量販店發票限定】鬼滅之刃限量聯名三人組運動毛巾<br>(價值250元，家樂福70名、大潤發20名、愛買10名，共100名)<br>
+                  【全家發票限定】鬼滅之刃模型<br>(價值4,250元，共2名)
+                </p>
+              </li>
+              <li class="flex mb-1">
+                <span class="text-15px text-gray-200">4.</span>
+                <p class="text-15px text-gray-200">
+                  中獎公告:<br>
+                  將以電腦隨機方式抽獎，並於2022/5/6公布中獎名單於多喝水LINE官方帳號，並同步LINE私訊得獎者
+                </p>
+              </li>
+              <li class="flex mb-1">
+                <span class="text-15px text-gray-200">5.</span>
+                <p class="text-15px text-gray-200">
+                  兌獎說明:<br>
+                  •
+                  依中華民國稅法規定，獎項金額超過新台幣1,000元，中獎人須依規定填寫並繳交中獎收據，主辦單位將開立各類所得扣繳憑單給得獎者，並依稅法規定代扣機會中獎稅。中獎者須下載【中獎回函】（填妥資料並檢附中獎發票正本、明細及身分證正反面影本）並於2022/5/20前（以郵戳為憑，逾期恕不受理）以掛號信件寄回台中市沙鹿區興安路65號《竹炭水活動小組收》。
+                  <br>
+                  •
+                  兌獎資料逾期或資料不符、不齊全、或拒納稅金者，均視同放棄中獎權利。
+                  <br>
+                  • 中獎回函上所填寫之身份資料需和參加本活動之資料相同，如有不同，主辦單位有權取消其參加或中獎資格，恕不另行通知。
+                  <br>
+                  • 主辦單位確認以上兌獎資格無誤後，將於2022/5/31前寄出獎品，寄出後恕不另行通知。
+                </p>
+              </li>
+            </ul>
+          </li>
+          <li class="mb-4">
+            <h3 class="font-bold text-18px text-primary mb-3.5">注意事項</h3>
+            <ul>
+              <li class="flex mb-1">
+                <span class="text-15px text-gray-200">1.</span>
+                <p class="text-15px text-gray-200">
+                  特別獎僅限特定通路發票可參與抽獎，且不得混合參加。
+                </p>
+              </li>
+              <li class="flex mb-1">
+                <span class="text-15px text-gray-200">2.</span>
+                <p class="text-15px text-gray-200">
+                  本活動參加之發票不含公司或其他法人團體發票（即不包含有開立統編之發票），且每張發票限中獎機會一次。每人每天限登錄20張發票(以手機號碼計)。
+                </p>
+              </li>
+              <li class="flex mb-1">
+                <span class="text-15px text-gray-200">3.</span>
+                <p class="text-15px text-gray-200">
+                  所有參加本活動者於提供或填寫個人資料後，視為同意主(協)辦單位得將其個人資料於本活動目的範圍內蒐集、處理暨使用之。主(協)辦單位僅使用參與者所提供之個人資料於此次活動用途，且遵守【個人資料保護法】相關規定，以維護參與者權益。得獎者授權主辦方公開公佈姓名。
+                </p>
+              </li>
+              <li class="flex mb-1">
+                <span class="text-15px text-gray-200">4.</span>
+                <p class="text-15px text-gray-200">
+                  本活動獎品不得更改獎項或兌換現金，得獎贈品均以實物為準，恕不得選款、挑色，亦不得將中獎資格轉讓其他人，違反前述規定之中獎人，主辦單位得取消其中獎項資格，如遇產品缺貨或其他不可抗力之事由，主辦單位得依實際狀況斟酌調整，並保留隨時修改、變更、終止或暫停本活動及替換其他等值贈品之權利。
+                </p>
+              </li>
+              <li class="flex mb-1">
+                <span class="text-15px text-gray-200">5.</span>
+                <p class="text-15px text-gray-200">
+                  若中獎者因資格不符或自願放棄中獎資格者，不另行網路公告，未滿20歲之中獎者，應取得監護人之同意並由監護人代為領取，並請附上中獎者及其代領人關係證明影本，如中獎者遲未能補足資料之情形，將視為棄權，主辦單位亦不再另行通知。
+                </p>
+              </li>
+              <li class="flex mb-1">
+                <span class="text-15px text-gray-200">6.</span>
+                <p class="text-15px text-gray-200">
+                  活動參加者有下列情形之一時，主辦單位得取消其得獎資格:<br>
+                  A. －違反本活動之活動辦法及相關注意事項之行為。
+                  <br>
+                  B. －提供之資料為非真實或冒用第三人之資料。
+                  <br>
+                  C. －提供之資料未填寫完整正確之中文姓名、聯絡電話及可收掛號信之郵寄地址。
+                </p>
+              </li>
+              <li class="flex mb-1">
+                <span class="text-15px text-gray-200">7.</span>
+                <p class="text-15px text-gray-200">
+                  主辦單位一概以本活動參加者所提供之個人資料寄送得獎贈品，中獎者請務必提供真實、完整之領獎資料，以便進行領獎作業。如因資料錯誤或不正確，導致無法通知得獎訊息、確認得獎者或獎品寄送後遭退回，皆將視為棄權。
+                </p>
+              </li>
+              <li class="flex mb-1">
+                <span class="text-15px text-gray-200">8.</span>
+                <p class="text-15px text-gray-200">
+                  活動獎項在郵寄或運送過程中，非可歸責於主辦方之事由所造成的毀壞、遲遞、錯遞或遺失，主辦單位不負賠償責任。中獎者未於郵局或宅配通知招領截止日期前領取獎品或通知信函者，視同放棄，其得獎資格將被取消。主辦單位保留全權處理任何未頒發的活動獎項之權利。
+                </p>
+              </li>
+              <li class="flex mb-1">
+                <span class="text-15px text-gray-200">9.</span>
+                <p class="text-15px text-gray-200">
+                  本活動獎品如需寄送，寄送(宅配)地點限於台灣本島、澎湖馬公本島、金門本島與小金門本島。
+                </p>
+              </li>
+              <li class="flex mb-1">
+                <span class="text-15px text-gray-200">10.</span>
+                <p class="text-15px text-gray-200">
+                  本活動之活動辦法、獎項、訊息以公布於多喝水LINE官方帳號的資料為準，活動贈品以實物為準，活動期間若發生問題或不可抗力之因素導致活動無法進行，主辦單位有權保留、變更或終止本活動期間、內容之權利，亦有權對本活動之所有事宜作出解釋或裁決。本活動如有任何內容變更，修改訊息將統一於本活動網站上公布，恕不另行通知，且不須另行通知或取得參與得獎者同意。若參加者不接受本活動於任何時間對本活動內容條款修改或變更後的結果，參加者得放棄其參加資格。
+                </p>
+              </li>
+              <li class="flex mb-1">
+                <span class="text-15px text-gray-200">11.</span>
+                <p class="text-15px text-gray-200">
+                  主辦單位有權檢視各活動參與者之參與行為及中獎情形是否涉嫌不法或有違常理之異常狀況，例:人為操作蓄意偽造、短時間異常多筆參與行為、透過任何電腦程式參與活動、詐欺或以任何其他不正當的方式（發票作廢、退換貨）意圖以進行不實或虛偽活動參與行為、或登錄資料不實或不正確或盜用任何第三人之資料，或有違反活動規範之行為，活動參與者因上述情形所獲得之活動資格及獎品，主辦單位保有變更、終止其參加活動資格、取消中獎資格或暫停活動的權利，並保留法律追訴權。
+                </p>
+              </li>
+              <li class="flex mb-1">
+                <span class="text-15px text-gray-200">12.</span>
+                <p class="text-15px text-gray-200">
+                  如因電腦病毒、駭客入侵、技術失誤、數據遺失、網路擠塞等網路技術或其他不可抗力的任何因素，以致參加活動者無法遞交資料、申請資料遺失或抽獎活動無法進行時，主辦單位無需承擔任何責任。
+                </p>
+              </li>
+              <li class="flex mb-1">
+                <span class="text-15px text-gray-200">13.</span>
+                <p class="text-15px text-gray-200">
+                  依中華民國稅法規定，獎項金額超過新台幣1,000元，中獎人須依規定填寫並繳交中獎收據，主辦單位將開立各類所得扣繳憑單給得獎者，並依稅法規定代扣機會中獎稅。中獎者若無法配合填寫並繳交中獎收據，視為中獎者自動棄權且不具得獎資格。另中獎獎品價值超過新台幣
+                  20,000
+                  元(含)以上者，應自行負擔機會中獎所得稅，依法先行自付10%稅金，並由主辦單位代扣繳，始得領取獎品，不願繳交稅金者視同放棄得獎權利。主辦單位將開立各類所得稅扣繳憑單給中獎者，獎項價值以主辦單位實際購買贈品之統一發票或收據金額為主。(有關「中獎獎金之扣繳稅款」以財政部發佈之條款為準)。
+                </p>
+              </li>
+              <li class="flex mb-1">
+                <span class="text-15px text-gray-200">14.</span>
+                <p class="text-15px text-gray-200">
+                  凡儲存於手機條碼載具之雲端發票，開立發票之消費日期應在本活動期間內，且同一組有效發票號碼僅限登錄一次。
+                </p>
+              </li>
+              <li class="flex mb-1">
+                <span class="text-15px text-gray-200">15.</span>
+                <p class="text-15px text-gray-200">
+                  發票資訊若無法提供足夠內容識別購買品項，不列入本次活動計算。
+                </p>
+              </li>
+              <li class="flex mb-1">
+                <span class="text-15px text-gray-200">16.</span>
+                <p class="text-15px text-gray-200">
+                  本次活動相關執行廠商公司之員工，不得參加本次活動。
+                </p>
+              </li>
+              <li class="flex mb-1">
+                <span class="text-15px text-gray-200">17.</span>
+                <p class="text-15px text-gray-200">
+                  消費者如有任何疑問，請於上班時間撥打客服專線:0800-461-015，上班時間:週一至週五9:00~12:00、13:00~17:00。
+                </p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <h3 class="font-bold text-18px text-primary mb-3.5">個資權益宣告</h3>
+            <ul>
+              <li class="flex mb-1">
+                <span class="text-15px text-gray-200">1.</span>
+                <p class="text-15px text-gray-200">
+                  本活動由味丹企業股份有限公司舉辦，為進行蒐集、處理及利用個人資料，特依「個人資料保護法」第八條之規定，告知擬參加之消費者下列事項:
+                </p>
+              </li>
+              <li class="flex mb-1">
+                <span class="text-15px text-gray-200">2.</span>
+                <p class="text-15px text-gray-200">
+                  蒐集人:味丹企業股份有限公司(主辦單位)
+                </p>
+              </li>
+              <li class="flex mb-1">
+                <span class="text-15px text-gray-200">3.</span>
+                <p class="text-15px text-gray-200">
+                  目的:行銷、贈獎及其相關事項。
+                </p>
+              </li>
+              <li class="flex mb-1">
+                <span class="text-15px text-gray-200">4.</span>
+                <p class="text-15px text-gray-200">
+                  個資類別:C001辨識個人者。如姓名、住址、電話、行動電話等。C003政府資料中之辨識者:如身分證統一編號等。及C011個人描述:年齡、性別、出生年月日等。
+                </p>
+              </li>
+              <li class="flex mb-1">
+                <span class="text-15px text-gray-200">5.</span>
+                <p class="text-15px text-gray-200">
+                  個人資料利用之期間、地區、對象及方式:<br>
+                  • 期間:自(日期)起至抽獎活動結束且獎項寄送等後續相關程序執行完畢。<br>
+                  • 地區:本國、未受中央目的事業主管機關限制之國際傳輸個人資料之接收者所在地。<br>
+                  • 對象:本公司、委託本公司之廣告主、本公司委託機關及執行本活動時之必要相關人員。<br>
+                  • 方式:以自動化機器或其他非自動化之利用方式。
+                </p>
+              </li>
+              <li class="flex mb-1">
+                <span class="text-15px text-gray-200">6.</span>
+                <p class="text-15px text-gray-200">
+                  參加人對於個人資料得行使之權利如下:<br>
+                  • 甲、查詢、請求閱覽或製給複製本<br>
+                  • 乙、請求補充或更正<br>
+                  • 丙、請求停止蒐集、處理或利用或請求刪除。如欲行使前述權利，請以口頭或書面通知本公司辦理，聯絡電話:0800-461-015
+                </p>
+              </li>
+              <li class="flex mb-1">
+                <span class="text-15px text-gray-200">7.</span>
+                <p class="text-15px text-gray-200">
+                  參加人可自由選擇是否提供本公司其個人資料，如參加人不願意或未提供正確之個人資料將被取消中獎資格。
+                </p>
+              </li>
+              <li class="flex mb-1">
+                <span class="text-15px text-gray-200">8.</span>
+                <p class="text-15px text-gray-200">
+                  主辦單位將尊重參加人之權益，絕不逾越上述特定目的之必要範圍，從事蒐集、處理及利用參加人個人資料，且非經同意，亦絕不任意竄改或洩漏或提供第三人使用。若有逾越上述特定目的之必要範圍之蒐集、處理及利用，主辦單位將事先以書面、電子郵件、傳真或其他適當方式通知並取得參加人書面之同意。
+                </p>
+              </li>
+              <li class="flex mb-1">
+                <span class="text-15px text-gray-200">9.</span>
+                <p class="text-15px text-gray-200">
+                  台端(參加人)參與本活動即視為已瞭解活動主辦方以上告知事項，並已清楚瞭解活動蒐集、處理及利用本人個人資料之目的及用途，並同意主辦方於上述告知事項範圍內，得蒐集、處理、國際傳遞及利用本人資料。
+                </p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="bg-black px-5 pt-3 pb-4">
+        <div class="flex gx-2">
+          <div class="w-1/2">
+            <a href="index.html" class="block text-20px text-center bg-primary rounded-9 py-2.5">
+              同 意
+            </a>
+          </div>
+          <div class="w-1/2">
+            <a href="javascript:;" class="block text-20px text-center bg-gray-100 rounded-9 py-2.5"
+              @click="closeMessage">
+              不 同 意
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { createApp } from 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.1.4/vue.esm-browser.min.js';
+    const app = createApp({
+      data() {
+        return {
+          message: true
+        }
+      },
+      methods: {
+        closeMessage() {
+          this.message = false;
+        }
+      }
+    });
+    app.mount('#app');
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+input::placeholder {
+  font-size: 0.875rem;
+  color: $gray-300;
+}
+
+input::-webkit-file-upload-button {
+  border-radius: 0;
+  border: 1px solid $gray-100;
+  color: $black;
+}
+
+select {
+  font-size: 0.875rem;
+  color: $gray-300;
+}
+
+.form-control::placeholder {
+  text-align: left;
+}
+
+

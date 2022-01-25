@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/tailwind.css">
+  <link rel="stylesheet" href="./css/all.css">
+  <title>多喝水竹炭水鬼滅之刃</title>
+</head>
+
+<body>
+
+  <div id="app">
+    <div style="background-image: url(./img/bg-banner.png);"
+      class="relative bg-center bg-cover bg-no-repeat min-h-screen px-6 pt-5 pb-3"
+      :class="{'pt-12' : nowLoginWay === 'modernQRcode'}">
+      <h1 class="text-0px mb-3.5" v-show="nowLoginWay === 'modernManual' || nowLoginWay === 'tradition'">
+        <img src="./img/logo.svg" alt="logo" class="mx-auto">
+        活動logo
+      </h1>
+      <div class="mb-6">
+        <div class="flex justify-center items-center mb-2">
+          <img src="./img/left-bamboo.svg" alt="竹子圖片">
+          <h2 class="font-medium text-18px text-white mx-2">基本資料</h2>
+          <img src="./img/right-bamboo.svg" alt="竹子圖片">
+        </div>
+        <div class="space-y-2">
+          <div class="w-full">
+            <input type="text" placeholder="請填寫真實中文姓名"
+              class="duration-300 block bg-white border w-full rounded-5 h-9 px-1.5 focus:border focus:border-gray-500">
+          </div>
+          <div class="w-full">
+            <input type="tel" placeholder="請填寫您的手機"
+              class="duration-300 block bg-white border w-full rounded-5 h-9 px-1.5 focus:border focus:border-gray-500">
+          </div>
+          <div class="w-full">
+            <div class="relative">
+              <img src="./img/icon-down-arrow.svg" alt="箭頭圖示"
+                class="absolute top-1/2 right-3 transform -translate-y-1/2 pointer-events-none">
+              <select
+                class="duration-300 block bg-white border w-full rounded-5 h-9 px-1.5 focus:border focus:border-gray-500"
+                v-model="nowBuyShop">
+                <option value="" disabled>請選擇購買通路</option>
+                <option v-for="shopping in buyShop" :value="shopping.nameEn" :key="shopping.name">{{ shopping.name }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="flex justify-center items-center mb-2">
+          <img src="./img/left-bamboo.svg" alt="竹子圖片">
+          <h2 class="font-medium text-18px text-white mx-2">
+            發票類型與登錄方式
+          </h2>
+          <img src="./img/right-bamboo.svg" alt="竹子圖片">
+        </div>
+        <div class="space-y-2">
+          <div class="w-full">
+            <div class="relative">
+              <img src="./img/icon-down-arrow.svg" alt="箭頭圖示"
+                class="absolute top-1/2 right-3 -translate-y-1/2 pointer-events-none">
+              <select
+                class="duration-300 block bg-white border w-full rounded-5 h-9 px-1.5 focus:border focus:border-gray-500"
+                v-model="nowLoginWay">
+                <option v-for="way in loginWay" :value="way.nameEn" :key="way.name">{{ way.name }}</option>
+              </select>
+            </div>
+          </div>
+          <div v-show="nowLoginWay === 'modernQRcode'">
+            <div class="w-full mb-2">
+              <a href="javascript:;" class="flex justify-center items-center bg-secondary rounded-9 p-2.5">
+                <img src="./img/QRcode.svg" alt="QRcode">
+                <span class="text-20px text-white ml-3">開啟QRcode掃描</span>
+              </a>
+            </div>
+            <div class="w-full mb-2">
+              <button type="button" class="block w-full text-20px bg-primary rounded-9 p-2.5">
+                送 出
+              </button>
+            </div>
+            <img src="./img/awards-2x.png" alt="獎品及人物圖片" class="mx-auto">
+          </div>
+          <div v-show="nowLoginWay === 'modernManual'">
+            <p class="text-white">手動輸入</p>
+          </div>
+          <div v-show="nowLoginWay === 'tradition'">
+            <div class="mb-2">
+              <div class="flex items-center mb-1">
+                <span class="text-secondary">*</span>
+                <h3 class="text-white">發票日期</h3>
+              </div>
+              <input type="date"
+                class="duration-300 block bg-white border w-full rounded-5 h-10 p-1.5 focus:border focus:border-gray-500">
+            </div>
+            <div class="mb-2">
+              <div class="flex items-center mb-1">
+                <span class="text-secondary">*</span>
+                <h3 class="text-white">發票號碼</h3>
+              </div>
+              <input type="text" placeholder="請輸入發票號碼(ex:AB12345678)"
+                class="uppercase duration-300 block bg-white border w-full rounded-5 h-9 px-1.5 focus:border focus:border-gray-500">
+            </div>
+            <div class="mb-2">
+              <div class="flex items-center mb-1">
+                <span class="text-secondary">*</span>
+                <h3 class="text-white">上傳購買證明或發票照片</h3>
+              </div>
+              <input type="file"
+                class="duration-300 block text-gray-300 bg-white border w-full rounded-5 p-1.5 mb-2 focus:border focus:border-gray-500"
+                @change="uploadFile">
+              <div v-if="preview">
+                <div class="relative pt-50%">
+                  <img :src="preview" :alt="previewName" class="absolute top-0 left-0 w-full h-full object-cover">
+                </div>
+                <p class="text-white mt-2">
+                  請確認上傳照片清晰可辨識，且購買品項須完整露出，若有疑慮請重新上傳，避免影響中獎權益。
+                </p>
+              </div>
+            </div>
+            <div class="mb-4">
+              <div class="flex items-center mb-1">
+                <span class="text-secondary">*</span>
+                <h3 class="text-white">驗證碼</h3>
+              </div>
+              <div class="flex">
+                <input type="text" placeholder="abc123"
+                  class="form-control duration-300 block bg-white border w-full rounded-5 h-9 px-2.5 mr-2 focus:border focus:border-gray-500">
+                <div class="min-w-[90px]">
+                  <img src="./img/verification-code.png" alt="驗證碼圖片" class="rounded-5 w-full h-full object-cover">
+                </div>
+              </div>
+            </div>
+            <div class="w-full pb-2">
+              <button type="button" class="block w-full text-20px bg-primary rounded-9 p-2.5">
+                送 出
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { createApp } from 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.1.4/vue.esm-browser.min.js';
+    const app = createApp({
+      data() {
+        return {
+          nowBuyShop: '',
+          buyShop: [
+            {
+              name: '7-11',
+              nameEn: 'seven-eleven'
+            },
+            {
+              name: '全家',
+              nameEn: 'whole family'
+            },
+            {
+              name: 'OK',
+              nameEn: 'OK-store'
+            },
+            {
+              name: '萊爾富',
+              nameEn: 'Lerfo'
+            },
+            {
+              name: '全聯',
+              nameEn: 'Quanlian'
+            },
+            {
+              name: '家樂福',
+              nameEn: 'Carrefour'
+            },
+            {
+              name: '大潤發',
+              nameEn: 'RT-Mart'
+            },
+            {
+              name: '愛買',
+              nameEn: 'love to buy'
+            },
+            {
+              name: '其他通路',
+              nameEn: 'other pathways'
+            },
+          ],
+          nowLoginWay: 'modernQRcode',
+          loginWay: [
+            {
+              name: '電子發票-掃描QRCode',
+              nameEn: 'modernQRcode'
+            },
+            {
+              name: '電子發票-手動輸入',
+              nameEn: 'modernManual'
+            },
+            {
+              name: '傳統發票與電子載具',
+              nameEn: 'tradition'
+            }
+          ],
+          preview: null,
+          previewName: ''
+        }
+      },
+      methods: {
+        uploadFile(e) {
+          const file = e.target.files[0];
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            this.preview = e.target.result;
+            this.previewName = file.name;
+          }
+          reader.readAsDataURL(file);
+        }
+      }
+    });
+    app.mount('#app');
+  </script>
+
+</body>
+
+</html>
