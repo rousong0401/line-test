@@ -14,12 +14,7 @@
 
   <div id="app">
     <div style="background-image: url(./img/bg-banner.png);"
-      class="relative bg-center bg-cover bg-no-repeat min-h-screen px-6 pt-5 pb-3"
-      :class="{'pt-12' : nowLoginWay === 'modernQRcode'}">
-      <h1 class="text-0px mb-3.5" v-show="nowLoginWay === 'modernManual' || nowLoginWay === 'tradition'">
-        <img src="./img/logo.svg" alt="logo" class="mx-auto">
-        活動logo
-      </h1>
+      class="relative bg-center bg-cover bg-no-repeat min-h-screen px-6 pt-12 pb-3">
       <div class="mb-6">
         <div class="flex justify-center items-center mb-2">
           <img src="./img/left-bamboo.svg" alt="竹子圖片">
@@ -65,7 +60,7 @@
                 class="absolute top-1/2 right-3 -translate-y-1/2 pointer-events-none">
               <select
                 class="duration-300 block bg-white border w-full rounded-5 h-9 px-1.5 focus:border focus:border-gray-500"
-                v-model="nowLoginWay">
+                v-model="nowLoginWay" @change="initUploadFile">
                 <option v-for="way in loginWay" :value="way.nameEn" :key="way.name">{{ way.name }}</option>
               </select>
             </div>
@@ -264,6 +259,10 @@
             this.previewName = file.name;
           }
           reader.readAsDataURL(file);
+        },
+        initUploadFile() {
+          this.preview = null;
+          this.previewName = '';
         }
       }
     });
